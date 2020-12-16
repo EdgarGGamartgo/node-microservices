@@ -10,13 +10,13 @@ app.use(bodyParser.json())
 app.use(cors());
 
 
-app.post('/events', (req, res) => {
+app.post('/events', async (req, res) => {
 
     const event = req.body
 
-    axios.posts('http://localhost:4000/events', event)
-    axios.posts('http://localhost:4001/events', event)
-    axios.posts('http://localhost:4002/events', event)
+    await axios.post('http://localhost:4000/events', event)
+    await axios.post('http://localhost:4001/events', event)
+    await axios.post('http://localhost:4002/events', event)
 
     res.status(201).send({ status: 'OK' })
 })
