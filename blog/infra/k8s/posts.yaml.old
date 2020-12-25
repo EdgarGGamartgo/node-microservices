@@ -1,0 +1,15 @@
+# minikube start
+# On infra/k8s run eval $(minikube docker-env) 
+# docker build -t edgarmartinez/posts:0.0.1 .
+# On infra/k8s run kubectl apply -f posts.yaml MAKE SURE TO ALWAYS MAKE IT
+# On infra/k8s run kubectl get pods
+# If sudo docker gets trouble just write sudo chmod 666 /var/run/docker.sock
+apiVersion: v1
+kind: Pod
+metadata:
+  name: posts
+spec:
+  containers:
+    - name: posts
+      image: edgarmartinez/posts:0.0.1
+      imagePullPolicy: Never
